@@ -9,38 +9,38 @@ datasources:
   - name: Radem
     type: influxdb
     access: proxy
-    url: http://radem_influxdb:8086
+    url: ${URL_INFLUXDB}
     uid: radem_influxdb_datasource
     isDefault: true
     basicAuth: true
     basicAuthUser: admin
     jsonData:
       version: Flux
-      organization: radem
-      defaultBucket: radem
+      organization: ${INFLUXDB_ORG}
+      defaultBucket: ${INFLUXDB_BUCKET}
       tlsSkipVerify: true
     secureJsonData:
-      basicAuthPassword: adminadmin
-      token: verylongtokenforinfluxdb
+      basicAuthPassword: ${INFLUXDB_PASSWORD}
+      token: ${INFLUXDB_TOKEN}
   - name: Irem
     type: influxdb
     access: proxy
-    url: http://radem_influxdb:8086
+    url: ${URL_INFLUXDB}
     uid: irem_influxdb_datasource
     isDefault: false
     basicAuth: true
     basicAuthUser: admin
     jsonData:
       version: Flux
-      organization: radem
-      defaultBucket: irem
+      organization: ${INFLUXDB_ORG}
+      defaultBucket: ${INFLUXDB_IREM_BUCKET}
       tlsSkipVerify: true
     secureJsonData:
-      basicAuthPassword: adminadmin
-      token: verylongtokenforinfluxdb
+      basicAuthPassword: ${INFLUXDB_PASSWORD}
+      token: ${INFLUXDB_TOKEN}
   - name: Prometheus
     type: prometheus
     access: proxy
-    url: http://radem_prometheus:9090
+    url: ${URL_PROMETHEUS}
     isDefault: false
     editable: true
