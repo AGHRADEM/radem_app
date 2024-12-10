@@ -20,7 +20,6 @@ wget \
     --timestamping \
     --recursive \
     --no-parent \
-    --continue \
     --no-verbose \
     -A gz \
     http://srem.psi.ch/datarepo/V0/irem/ \
