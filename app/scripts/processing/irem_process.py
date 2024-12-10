@@ -63,9 +63,14 @@ class IremDataProcessor:
 
     @staticmethod
     def _extract_file(input_filename: Path, output_filename: Path) -> None:
-        with open(input_filename, 'rb') as f_in:
-            with gzip.open(f_in) as f_decompressed, open(output_filename, 'wb') as f_out:
-                f_out.write(f_decompressed.read())
+        try:
+            with open(input_filename, 'rb') as f_in:
+                with gzip.open(f_in) as f_decompressed, open(output_filename, 'wb') as f_out:
+                    f_out.write(f_decompressed.read())
+        except Exception as e:
+            print(
+                f"Error extracting file {input_filename} to {output_filename}: {e}")
+            return None
 
     def read_irem_cdfs(self) -> List[pycdf.CDF]:
         cdfs = []
