@@ -26,7 +26,7 @@ services:
     networks:
       - radem_network
     ports:
-      - "81:3000"
+      - "51820:3000"
     restart: unless-stopped
     logging:
       driver: "json-file"
